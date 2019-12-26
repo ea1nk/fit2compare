@@ -7,7 +7,7 @@ var easyFit = new EasyFit({
   lengthUnit: "km",
   temperatureUnit: "kelvin",
   elapsedRecordField: true,
-  mode: "cascade"
+  mode: "both"
 });
 
 function parseFitdata(data) {
