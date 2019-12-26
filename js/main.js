@@ -17,7 +17,7 @@ function parseFitdata(data) {
       console.log("Error!");
       response = { error: true };
     } else {
-      console.log(JSON.stringify(output));
+      //console.log(JSON.stringify(output));
       response = JSON.stringify(output);
     }
   });
@@ -337,7 +337,7 @@ function printPower(data, series) {
 
 function fillResume(data){
     data = JSON.parse(data);
-    console.log(data)
+    //console.log(data)
     var resume_table = $("#file_resume_table").clone();
     $(resume_table)
       .attr("id", "a")
@@ -416,7 +416,7 @@ function adjustDataSeries(idx, val){
 }
 function exportJSON(id){
   var data = jsonData[id-1];
-  console.log(data);
+  //console.log(data);
   var blob = new Blob([JSON.stringify(data)], {type:"application/json;charset=utf-8"});
   saveAs(blob, "pwr2compare_JSON_"+id+".json");
 }
