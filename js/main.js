@@ -350,7 +350,7 @@ function printPower(data, series) {
     if (!now) {
       now = moment(record.timestamp);
     } else {
-      if (moment(record.timestamp).diff(now, "seconds") <= 2) {
+      if (moment(record.timestamp).diff(now, "seconds") <= 2 && record.power < 2000){
         powerBuffer.push(record.power);
         hrBuffer.push(record.heart_rate);
         cadBuffer.push(record.cadence);
