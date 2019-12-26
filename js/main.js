@@ -346,7 +346,7 @@ function fillResume(data){
     $(resume_table).find("span[id='fileName']").text(" File: " + auxFileName)  
     if(data.file_id.manufacturer) $(resume_table).find("span[id='device']").text(data.file_id.manufacturer)
     if(data.file_id.time_created)$(resume_table).find("span[id='date']").text(moment(data.file_id.time_created).format("YYYY-MM-DD HH:mm:ss"));
-    /*if(data.activity.sessions[0].total_distance) */$(resume_table).find("span[id='distance']").text(data.activity.sessions[0].total_distance + "Km")
+    /*if(data.activity.sessions[0].total_distance) */$(resume_table).find("span[id='distance']").text(data.activity.sessions[0].total_distance.toFixed(2) + "Km")
     var event_duration = moment.duration(data.activity.sessions[0].total_elapsed_time,'seconds');
     var elapsed_time = event_duration.format("HH:mm:ss");
     $(resume_table).find("span[id='elapsed']").text(elapsed_time)
