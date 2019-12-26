@@ -1,5 +1,3 @@
-[Demo](https://ea1nk.github.io/fit2compare/)
-
 # fit2compare
 Sencillo visualizador y comparador de ficheros Garmin FIT.
 
