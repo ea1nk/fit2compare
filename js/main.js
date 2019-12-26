@@ -91,11 +91,11 @@ function initializeChartPwr(measure) {
         ]
       },
       tooltips: {
-        mode: "index",
+        mode: "point",
         intersect: false
       },
       hover: {
-        mode: "index",
+        mode: "point",
         intersect: false
       }
     }
@@ -168,11 +168,11 @@ function initializeChartHR(measure) {
         ]
       },
       tooltips: {
-        mode: "index",
+        mode: "point",
         intersect: false
       },
       hover: {
-        mode: "index",
+        mode: "point",
         intersect: false
       }
     }
@@ -245,11 +245,11 @@ function initializeChartCad(measure) {
         ]
       },
       tooltips: {
-        mode: "index",
+        mode: "point",
         intersect: false
       },
       hover: {
-        mode: "index",
+        mode: "point",
         intersect: false
       }
     }
@@ -321,11 +321,11 @@ function initializeChartEle(measure) {
         ]
       },
       tooltips: {
-        mode: "index",
+        mode: "point",
         intersect: false
       },
       hover: {
-        mode: "index",
+        mode: "point",
         intersect: false
       }
     }
