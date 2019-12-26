@@ -19,6 +19,6 @@ Simple Garmin FIT file viewer and comparator.
 
 - Visualization of power, heart rate and cadence measures and a brief activity resume from the loaded FIT file.
 - Export **all** the data from the FIT file in JSON format for further analysis.
-- Export visualized data from the FIT file in XLSX format for further analysis.
+- Export **visualized** data from the FIT file in XLSX format for further analysis.
 - Power, heart rate and cadence comparison between two FIT files. For example a Zwift generated file and a Garmin device  recorded activity.
 - Power meters, heart rate measuring devices and cadence meter sensor comparisons.
