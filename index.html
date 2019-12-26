@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>.:fit2compare:. Simple Fit File Comparator </title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css" integrity="sha256-aa0xaJgmK/X74WM224KMQeNQC2xYKwlAt08oZqjeF0E=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.4.1/darkly/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="./js/Chart.min.css">
+    <style>
+        .offset_field {
+            height: 20px;
+            border-radius: 4px;
+            padding: 3px;
+            margin: 3px;
+            width: 3em;
+        }
+    
+        .adjust_span {
+            margin: 40px;
+            border: 2px solid #00bc8c;
+            padding: 8px;
+            border-radius: 5px;
+        }
+    
+        .reset_offset_btn {
+            height: 20px !important;
+            line-height: 0 !important;
+            margin-left: 15px !important;
+        }
+    </style>
+  </head>
+  
+  <body>
+    <div class="container-fluid">
+        <div class="card">
+            <div class='card-header'>
+                <h2 class="card-title">.: <i class="fa fa-files-o" aria-hidden="true"></i> fit2compare:.</h2>
+            </div>
+            <div class="card-body">
+                <!-- CONTENIDO AQUI -->
+                <!-- Subida de ficheros -->
+                <div class='col-md-12 card-body'>
+                   
+                        <button id='open1' class='btn btn-success open_btn' data-file-id='1'> <i class="fa fa-folder-open" aria-hidden="true"></i> Open First File</button>
+                        <input type="file" accept='.fit' id="FileUpload1" style="display: none" />
+                        <button id='downloadJSON1' class='btn btn-outline-success' data-file-id='1' title='Download JSON data' hidden><i class="fa fa-download" aria-hidden="true"></i></button>
+                        <button id='open2' class='btn btn-success open_btn' data-file-id='2'> <i class="fa fa-folder-open" aria-hidden="true"></i> Open Second File</button>
+                        <input type="file" accept='.fit' id="FileUpload2" style="display: none" />
+                        <button id='downloadJSON2' class='btn btn-outline-success' data-file-id='2' title='Download JSON data' hidden><i class="fa fa-download" aria-hidden="true"></i></button>
+                        <button id='clearFiles' class='btn btn-success' data-file-id='2'> <i class="fa fa-trash" aria-hidden="true"></i> Clear Files</button>
+                        <span class='adjust_span'>
+                        <label for='offset1'><i class="fa fa-clock-o" aria-hidden="true"></i>  Adjust file <span id='file1_adj'></span></label>
+                        <input type='number' class='offset_field' name='offset1' id='offset1' min="-60" max='60' value="0" data-file-id="1">
+                        <label for='offset2'><i class="fa fa-clock-o" aria-hidden="true"></i>  Adjust file <span id='file2_adj'></span></label>
+                        <input type='number' class='offset_field' name='offset2' id='offset2' min="-60" max='60' value="0" data-file-id="2">
+                        <button id='clear_offset' class='btn btn-success btn-sm reset_offset_btn'>Clear Offset</button>
+                        </span>
+                        <button id='exportXLS' class='btn btn-outline-success float-right'> <i class="fa fa-file-excel-o" aria-hidden="true"></i> Export Data</button>
+
+                                          
+                </div>
+                
+                    <div id="accordianId" role="tablist" aria-multiselectable="true">
+                        <div class="card">
+                            <div class="card-header" role="tab" id="section1HeaderId">
+                                <h5 class="mb-0">
+                                    <a data-toggle="collapse" data-parent="#accordianId" href="#section1ContentId" aria-expanded="true" aria-controls="section1ContentId">
+                             <i class="fa fa-bolt" aria-hidden="true"></i> Power
+                            </a>
+                            <button onclick='exportJPEG(1)' type='button' class='btn btn-outline-success btn-sm float-right'> <i class="fa fa-file-image-o" aria-hidden="true"></i> Export Image</button>
+                                </h5>
+                            </div>
+                            <div id="section1ContentId" class="collapse show" role="tabpanel" aria-labelledby="section1HeaderId">
+                                <div class="card-body">
+                                    <!-- Gráfica de potencia -->
+                                    <canvas id='pwrGraph' style='width:100% !important;height:300px !important;'></canvas>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" role="tab" id="section2HeaderId">
+                                <h5 class="mb-0">
+                                    <a data-toggle="collapse" data-parent="#accordianId" href="#section2ContentId" aria-expanded="true" aria-controls="section2ContentId">
+                                     <i class="fa fa-heartbeat" aria-hidden="true"></i> Heart Rate
+                            </a>
+                            <button onclick='exportJPEG(2)' type='button' class='btn btn-outline-success btn-sm float-right'> <i class="fa fa-file-image-o" aria-hidden="true"></i> Export Image</button>
+
+                                </h5>
+                            </div>
+                            <div id="section2ContentId" class="collapse show" role="tabpanel" aria-labelledby="section2HeaderId">
+                                <div class="card-body">
+                                      <!-- Gráfica de pulso -->
+                                      <canvas id='hrGraph' style='width:100% !important;height:300px !important;'></canvas>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                                <div class="card-header" role="tab" id="section3HeaderId">
+                                    <h5 class="mb-0">
+                                        <a data-toggle="collapse" data-parent="#accordianId" href="#section3ContentId" aria-expanded="true" aria-controls="section3ContentId">
+                                  <i class="fa fa-bicycle" aria-hidden="true"></i> Cadence
+                                </a>
+                                <button onclick='exportJPG(3)' type='button' class='btn btn-outline-success btn-sm float-right'> <i class="fa fa-file-image-o" aria-hidden="true"></i> Export Image</button>
+
+                                    </h5>
+                                </div>
+                                <div id="section3ContentId" class="collapse show" role="tabpanel" aria-labelledby="section3HeaderId">
+                                    <div class="card-body">
+                                        <!-- Gráfica de cadencia-->
+                                        <canvas id='cadenceGraph' style='width:100% !important;height:300px !important;'></canvas>
+                                    </div>
+                                </div>
+                        </div>
+                        <div class="card">
+                                <div class="card-header" role="tab" id="section4HeaderId">
+                                    <h5 class="mb-0">
+                                        <a data-toggle="collapse" data-parent="#accordianId" href="#section4ContentId" aria-expanded="true" aria-controls="section4ContentId">
+                                 <i class="fa fa-table" aria-hidden="true"></i> Resume
+                                </a>
+                                    </h5>
+                                </div>
+                                <div id="section4ContentId" class="collapse in" role="tabpanel" aria-labelledby="section4HeaderId">
+                                    <div class="card-body" id='resume_container'>
+                                        <table id='file_resume_table' style='display:inline-block' class="table col-md-6" hidden>
+                                            <thead>
+                                                <tr>
+                                                    <th colspan='4'>
+                                                        <i class="fa fa-info-circle" aria-hidden="true"></i><span id='fileName'> File1 </span>
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                    <tr>
+                                                        <td scope="row">Device:</td>
+                                                        <td><span id='device'></span></td>
+                                                        <td>Date:</td>
+                                                        <td><span id='date'></span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td scope="row">Distance:</td>
+                                                        <td><span id='distance'></span></td>
+                                                        <td>Elapsed Time:</td>
+                                                        <td><span id='elapsed'></span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td scope="row">Avg. Power:</td>
+                                                        <td><span id='avgPwr'></span></td>
+                                                        <td>Max. Power:</td>
+                                                        <td><span id='maxPwr'></span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td scope="row">Avg. HR:</td>
+                                                        <td><span id='avgHr'></span></td>
+                                                        <td>Max. HR</td>
+                                                        <td><span id='maxHr'></span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td scope="row">Avg. Cadence:</td>
+                                                        <td><span id='avgCadence'></span></td>
+                                                        <td>Max. Cadence:</td>
+                                                        <td><span id='maxCadence'></span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td scope="row">Normalized Power:</td>
+                                                        <td><span id='normalizedPwr'></span></td>
+                                                        <td>Calories:</td>
+                                                        <td><span id='calories'></span></td>
+                                                    </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>    
+                    </div>
+            </div>
+            <div class='card-footer text-muted'>
+                <h7><i class="fa fa-creative-commons" aria-hidden="true"></i> 2019 - Juan J. Lamas .:EA1NK:.</h7>
+            </div>
+        </div>
+    </div> 
+    <!-- Optional JavaScript -->
+   
+    <script type='text/javascript' src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script type='text/javascript' src='./js/moment.js'></script>
+    <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/moment-duration-format/1.3.0/moment-duration-format.min.js"></script>
+    <script type='text/javascript' src='./js/Chart.min.js'></script>
+    <script type='text/javascript' src='./js/chartjs-plugin-annotation.js'></script>
+    <script type='text/javascript' src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom@0.7.4"></script>
+    <script type='text/javascript' src='https://cdn.jsdelivr.net/npm/chartjs-plugin-draggable@0.1.6/dist/chartjs-plugin-draggable.min.js'></script>
+    <script type='text/javascript' src='https://cdn.jsdelivr.net/npm/chartjs-plugin-crosshair@1.1.2'></script>
+    <script type='text/javascript' src="https://cdn.jsdelivr.net/npm/bootstrap-filestyle@1.2.1/src/bootstrap-filestyle.min.js"></script>
+    <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/3.0.0/exceljs.min.js"></script>
+    <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.min.js"></script>
+    <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script type='text/javascript' src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script type='text/javascript' src='./js/standalone.js'></script>
+    <script type='text/javascript' src='./js/main.js'></script>
+  </body>
+  <script>
+    var chartPwr;
+    var chartHR;
+    var chartCad;
+    var pwrDevices = [];
+    var xlsBuffer = { 0: [], 1: [] };
+    var jsonData = {0:[], 1:[]};
+    var auxFileName;
+    var file1_offset = 0;
+    var file1_offset_counter = 0;
+    var file2_offset = 0;
+    var file2_offset_counter = 0;
+
+    $(document).ready(function () {
+        $("#file1, #file2").filestyle({
+            buttonName: "btn-success",
+            buttonText: " Open"
+        });
+
+        $("#offset1, #offset2").on('change', function(){
+            var idx = $(this).attr("data-file-id");
+            var value = $(this).val() 
+            adjustDataSeries(idx-1, parseInt(value*1000));
+
+        })
+        
+        $("#clear_offset").click(function(){
+
+            $("#offset1, #offset2").val('0');
+            resetDataSeries();
+        })
+
+        $(".open_btn").click(function () {
+            var file = $(this).attr("data-file-id");
+            $("#FileUpload" + file).click();
+        });
+
+        $("#downloadJSON1, #downloadJSON2").click(function(){
+            var idx = $(this).attr("data-file-id");
+            exportJSON(idx);
+        })
+
+        $("#exportXLS").click(function(){
+            createXLS();
+        })
+
+        $("#FileUpload1, #FileUpload2").on("change", function (event) {
+            const reader = new FileReader();
+            reader.onload = function (event) {
+            var binaryData = event.target.result;
+            var parsedData = parseFitdata(binaryData);
+            printPower(parsedData);
+            fillResume(parsedData);
+            };
+            reader.readAsArrayBuffer(event.target.files[0]);
+            var auxFile = event.target.id;
+            var auxIdx = auxFile.substr(-1)
+            $("#open"+auxIdx).prop('disabled', true).css('cursor','not-allowed');
+            $("#downloadJSON"+auxIdx).removeAttr('hidden');
+            auxFileName = event.target.value;
+            auxFileName = auxFileName.split(/(\\|\/)/g).pop()
+        });
+
+        $("#clearFiles").on("click", function () {
+            $("#FileUpload1, #FileUpload2").val(null);
+            chartPwr.data.datasets.forEach(dataset => {
+                dataset.data = [];
+                dataset.label='';
+            });
+
+            chartPwr.update();
+            chartPwr.render();
+
+            chartHR.data.datasets.forEach(dataset => {
+                dataset.data = [];
+                dataset.label='';
+            });
+
+            chartHR.update();
+            chartHR.render();
+
+            chartCad.data.datasets.forEach(dataset => {
+                dataset.data = [];
+                dataset.label='';
+            });
+
+            chartCad.update();
+            chartCad.render();
+
+            xlsBuffer = { 0: [], 1: [] };
+            xlsData =[];
+            jsonData = {0:[], 1:[]};
+            auxFileName = null
+            $("#file1_adj, #file2_adj").text('')
+            $("#resume_container table").not("#file_resume_table").remove();
+            $("#open1, #open2").prop('disabled', false).css('cursor','pointer');
+            $("#downloadJSON1, #downloadJSON2").attr('hidden', true);
+        });
+
+        initializeChartPwr("Power");
+        initializeChartHR("Heart Rate");
+        initializeChartCad("Cadence");
+        $("#section2ContentId, #section3ContentId")
+            .removeClass("show")
+            .addClass("in");
+    });
+</script>
+
+</html>
