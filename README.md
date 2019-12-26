@@ -1,3 +1,5 @@
+[Demo](https://ea1nk.github.io/fit2compare/)
+
 # fit2compare
 Sencillo visualizador y comparador de ficheros Garmin FIT.
 
@@ -12,6 +14,8 @@ Herramienta sencilla para visualizar un fichero Garmin FIT o comparar dos oríge
 - Comparación de medidores de potencia, bandas de pulso y medidores de cadencia.
 - Todo el análisis se realiza en el navegador.
 
+[Demo](https://ea1nk.github.io/fit2compare/)
+
 # fit2compare
 Simple Garmin FIT file viewer and comparator.
 
@@ -23,3 +27,5 @@ Simple Garmin FIT file viewer and comparator.
 - Power, heart rate and cadence comparison between two FIT files. For example a Zwift generated file and a Garmin device  recorded activity.
 - Power meters, heart rate measuring devices and cadence meter sensor comparisons.
 - In-browser complete analysis.
+
+[Demo](https://ea1nk.github.io/fit2compare/)
