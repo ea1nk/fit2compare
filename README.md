@@ -5,7 +5,7 @@ Herramienta sencilla para visualizar un fichero Garmin FIT o comparar dos oríge
 
 ## Funciones básicas:
 
-- Carga de ficheros FIT y visualización de potencia, pulso, cadencia y un resumen de la actividad.
+- Carga de ficheros FIT y visualización de potencia, pulso, cadencia, elevación y un resumen de la actividad.
 - Exportación de **todos** los datos del fichero FIT en formato JSON para un análisis posterior.
 - Exportación de los datos **visualizados** en formato XLSX para un análisis posterior.
 - Comparación de potencia, pulso y cadencia entre dos ficheros FIT de una misma actividad. Por ejemplo el fichero generado por Zwift y otro generado por un dispositivo Garmin.
@@ -19,7 +19,7 @@ Simple Garmin FIT file viewer and comparator.
 
 ## Basic functions
 
-- Visualization of power, heart rate and cadence measures and a brief activity resume from the loaded FIT file.
+- Visualization of power, heart rate,cadence and elevation measures and a brief activity resume from the loaded FIT file.
 - Export **all** the data from the FIT file in JSON format for further analysis.
 - Export **visualized** data from the FIT file in XLSX format for further analysis.
 - Power, heart rate and cadence comparison between two FIT files. For example a Zwift generated file and a Garmin device  recorded activity.
