@@ -1,4 +1,7 @@
 # fit2compare
+
+![Screenshot](sample.jpg)
+
 Sencillo visualizador y comparador de ficheros Garmin FIT.
 
 Herramienta sencilla para visualizar un fichero Garmin FIT o comparar dos orígenes de datos.
