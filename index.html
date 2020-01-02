@@ -262,6 +262,12 @@
             $("#downloadJSON"+auxIdx).removeAttr('hidden');
             auxFileName = event.target.value;
             auxFileName = auxFileName.split(/(\\|\/)/g).pop()
+            auxFileName  = auxFileName.split(".").shift()
+            if(auxFileName.length>15){
+                auxFileName = auxFileName.substr(0,15) + "....fit"
+            } else {
+                auxFileName = auxFileName+".fit"
+            }
         });
 
         $("#clearFiles").on("click", function () {
