@@ -550,7 +550,7 @@ async function createXLS() {
 function createXLSData(data){
 var rows = [];
 data.forEach(entry =>{
-  rows.push({a:entry.tsmp, b:entry.pwr, c:entry.hr, d:entry.cad, e:entry.elevation})
+  rows.push({a:entry.tsmp, b:entry.pwr, c:entry.hr, d:entry.cad, e:entry.elev})
 })
 return rows;
 }
