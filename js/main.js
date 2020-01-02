@@ -7,7 +7,7 @@ var fitParser = new FitParser({
   lengthUnit: "km",
   temperatureUnit: "kelvin",
   elapsedRecordField: true,
-  mode: "cascade"
+  mode: "both"
 });
 
 function parseFitdata(data) {
@@ -91,11 +91,11 @@ function initializeChartPwr(measure) {
         ]
       },
       tooltips: {
-        mode: "index",
+        mode: "x",
         intersect: false
       },
       hover: {
-        mode: "index",
+        mode: "x",
         intersect: false
       }
     }
@@ -168,11 +168,11 @@ function initializeChartHR(measure) {
         ]
       },
       tooltips: {
-        mode: "index",
+        mode: "x",
         intersect: false
       },
       hover: {
-        mode: "index",
+        mode: "x",
         intersect: false
       }
     }
@@ -245,11 +245,87 @@ function initializeChartCad(measure) {
         ]
       },
       tooltips: {
-        mode: "index",
+        mode: "x",
         intersect: false
       },
       hover: {
-        mode: "index",
+        mode: "x",
+        intersect: false
+      }
+    }
+  });
+}
+
+function initializeChartEle(measure) {
+  var canvas = document.getElementById("elevationGraph");
+  var ctx = canvas.getContext("2d");
+  
+
+  chartEle = new Chart(ctx, {
+    type: "line",
+    data: {
+      datasets: [
+        {
+          label: "1",
+          borderColor: "rgb(204, 230, 255)",
+          borderWidth: 1,
+          //backgroundColor: 'rgb(204, 230, 255, 0.7)',
+          pointRadius: 0,
+          data: []
+        },
+        {
+          label: "2",
+          borderColor: "rgb(255, 238, 204)",
+          borderWidth: 1,
+          //backgroundColor: 'rgb(255, 238, 204, 0.7)',
+          pointRadius: 0,
+          data: []
+        }
+      ]
+    },
+    options: {
+      responsive: false,
+      maintainAspectRatio: true,
+      title: {
+        display: true,
+        text: measure,
+        position: "bottom",
+        padding: 5,
+        fontSize: 10,
+        fontColor: "#FFF",
+        fontStyle: "bold"
+      },
+      scales: {
+        xAxes: [
+          {
+            gridLines: {
+              display: true,
+              color:"#666"
+            },
+            type: "time",
+            distribution: "linear",
+            time:{
+                format:'HH:mm',
+                unit:'minute',
+                stepSize:5
+            }
+          }
+        ],
+        yAxes: [
+          {
+            gridLines: {
+              display: true,
+              color:"#666"
+            }
+          }
+        ]
+      },
+      tooltips: {
+        mode: "x",
+        intersect: false
+      },
+      hover: {
+        mode: "x",
         intersect: false
       }
     }
@@ -272,7 +348,7 @@ function printPower(data, series) {
     if (!now) {
       now = moment(record.timestamp);
     } else {
-      if (moment(record.timestamp).diff(now, "seconds") <= 2) {
+      if (moment(record.timestamp).diff(now, "seconds") <= 2 && record.power < 2000){
         powerBuffer.push(record.power);
         hrBuffer.push(record.heart_rate);
         cadBuffer.push(record.cadence);
