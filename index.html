@@ -70,9 +70,9 @@
                             <div class="card-header" role="tab" id="section1HeaderId">
                                 <h5 class="mb-0">
                                     <a data-toggle="collapse" data-parent="#accordianId" href="#section1ContentId" aria-expanded="true" aria-controls="section1ContentId">
-                             <i class="fa fa-bolt" aria-hidden="true"></i> Power
+                             <i class="fa fa-bolt" aria-hidden="true"></i><span data-translate='potencia'>Power</span>
                             </a>
-                            <button onclick='exportJPEG(1)' type='button' class='btn btn-outline-success btn-sm float-right'> <i class="fa fa-file-image-o" aria-hidden="true"></i> Export Image</button>
+                            <button onclick='exportJPEG(1)' type='button' class='btn btn-outline-success btn-sm float-right'> <i class="fa fa-file-image-o" aria-hidden="true"></i> <span data-translate='exportar_imagen'>Export Image</span></button>
                                 </h5>
                             </div>
                             <div id="section1ContentId" class="collapse show" role="tabpanel" aria-labelledby="section1HeaderId">
@@ -86,9 +86,9 @@
                             <div class="card-header" role="tab" id="section2HeaderId">
                                 <h5 class="mb-0">
                                     <a data-toggle="collapse" data-parent="#accordianId" href="#section2ContentId" aria-expanded="true" aria-controls="section2ContentId">
-                                     <i class="fa fa-heartbeat" aria-hidden="true"></i> Heart Rate
+                                     <i class="fa fa-heartbeat" aria-hidden="true"></i><span data-translate='pulso'>Heart Rate</span>
                             </a>
-                            <button onclick='exportJPEG(2)' type='button' class='btn btn-outline-success btn-sm float-right'> <i class="fa fa-file-image-o" aria-hidden="true"></i> Export Image</button>
+                            <button onclick='exportJPEG(2)' type='button' class='btn btn-outline-success btn-sm float-right'> <i class="fa fa-file-image-o" aria-hidden="true"></i> <span data-translate='exportar_imagen'>Export Image</span></button>
 
                                 </h5>
                             </div>
@@ -103,9 +103,9 @@
                                 <div class="card-header" role="tab" id="section3HeaderId">
                                     <h5 class="mb-0">
                                         <a data-toggle="collapse" data-parent="#accordianId" href="#section3ContentId" aria-expanded="true" aria-controls="section3ContentId">
-                                  <i class="fa fa-bicycle" aria-hidden="true"></i> Cadence
+                                  <i class="fa fa-bicycle" aria-hidden="true"></i><span data-translate='cadencia'>Cadence</span>
                                 </a>
-                                <button onclick='exportJPG(3)' type='button' class='btn btn-outline-success btn-sm float-right'> <i class="fa fa-file-image-o" aria-hidden="true"></i> Export Image</button>
+                                <button onclick='exportJPG(3)' type='button' class='btn btn-outline-success btn-sm float-right'> <i class="fa fa-file-image-o" aria-hidden="true"></i> <span data-translate='exportar_imagen'>Export Image</span></button>
 
                                     </h5>
                                 </div>
@@ -122,11 +122,11 @@
                                 <h5 class="mb-0">
                                     <a data-toggle="collapse" data-parent="#accordianId" href="#section5ContentId"
                                         aria-expanded="true" aria-controls="section5ContentId">
-                                        <i class="fa fa-map" aria-hidden="true"></i> Elevation
+                                        <i class="fa fa-map" aria-hidden="true"></i><span data-translate='elevacion'>Elevation</span>
                                     </a>
                                     <button onclick='exportJPG(4)' type='button'
                                         class='btn btn-outline-success btn-sm float-right'> <i
-                                            class="fa fa-file-image-o" aria-hidden="true"></i> Export Image</button>
+                                            class="fa fa-file-image-o" aria-hidden="true"></i> <span data-translate='exportar_imagen'>Export Image</span></button>
 
                                 </h5>
                             </div>
@@ -145,7 +145,7 @@
                                 <div class="card-header" role="tab" id="section4HeaderId">
                                     <h5 class="mb-0">
                                         <a data-toggle="collapse" data-parent="#accordianId" href="#section4ContentId" aria-expanded="true" aria-controls="section4ContentId">
-                                 <i class="fa fa-table" aria-hidden="true"></i> Resume
+                                 <i class="fa fa-table" aria-hidden="true"></i><span data-translate='resumen'>Resume</span>
                                 </a>
                                     </h5>
                                 </div>
@@ -161,39 +161,39 @@
                                             </thead>
                                             <tbody>
                                                     <tr>
-                                                        <td scope="row">Device:</td>
+                                                        <td scope="row" data-translate="dispositivo">Device:</td>
                                                         <td><span id='device'></span></td>
-                                                        <td>Date:</td>
+                                                        <td data-translate="fecha">Date:</td>
                                                         <td><span id='date'></span></td>
                                                     </tr>
                                                     <tr>
-                                                        <td scope="row">Distance:</td>
+                                                        <td scope="row" data-translate="distancia">Distance:</td>
                                                         <td><span id='distance'></span></td>
-                                                        <td>Elapsed Time:</td>
+                                                        <td data-translate="duracion">Elapsed Time:</td>
                                                         <td><span id='elapsed'></span></td>
                                                     </tr>
                                                     <tr>
-                                                        <td scope="row">Avg. Power:</td>
+                                                        <td scope="row" data-translate="pot_media">Avg. Power:</td>
                                                         <td><span id='avgPwr'></span></td>
-                                                        <td>Max. Power:</td>
+                                                        <td data-translate="pot_maxima">Max. Power:</td>
                                                         <td><span id='maxPwr'></span></td>
                                                     </tr>
                                                     <tr>
-                                                        <td scope="row">Avg. HR:</td>
+                                                        <td scope="row" data-translate="pulso_medio">Avg. HR:</td>
                                                         <td><span id='avgHr'></span></td>
-                                                        <td>Max. HR</td>
+                                                        <td data-translate='pulso_max'>Max. HR</td>
                                                         <td><span id='maxHr'></span></td>
                                                     </tr>
                                                     <tr>
-                                                        <td scope="row">Avg. Cadence:</td>
+                                                        <td scope="row" data-translate="cad_media">Avg. Cadence:</td>
                                                         <td><span id='avgCadence'></span></td>
-                                                        <td>Max. Cadence:</td>
+                                                        <td data-translate="cad_max">Max. Cadence:</td>
                                                         <td><span id='maxCadence'></span></td>
                                                     </tr>
                                                     <tr>
-                                                        <td scope="row">Normalized Power:</td>
+                                                        <td scope="row" data-translate="pot_normalizada">Normalized Power:</td>
                                                         <td><span id='normalizedPwr'></span></td>
-                                                        <td>Calories:</td>
+                                                        <td data-translate="calorias">Calories:</td>
                                                         <td><span id='calories'></span></td>
                                                     </tr>
                                             </tbody>
