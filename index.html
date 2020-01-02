@@ -348,6 +348,9 @@
         $("#section2ContentId, #section3ContentId,#section4ContentId,#section5ContentId")
         .removeClass("show")
         .addClass("in");
+
+        $("[data-translate]").jqTranslate('index',{path:'lang',asyncLangLoad: false });
+
         });
 </script>
 
