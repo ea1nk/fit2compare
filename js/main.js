@@ -91,12 +91,12 @@ function initializeChartPwr(measure) {
         ]
       },
       tooltips: {
-        mode: "x",
-        intersect: false
+        mode: "nearest",
+        intersect: true
       },
       hover: {
-        mode: "x",
-        intersect: false
+        mode: "nearest",
+        intersect: true
       }
     }
   });
