@@ -46,21 +46,21 @@
                 <!-- Subida de ficheros -->
                 <div class='col-md-12 card-body'>
                    
-                        <button id='open1' class='btn btn-success open_btn' data-file-id='1'> <i class="fa fa-folder-open" aria-hidden="true"></i> Open First File</button>
+                        <button id='open1' class='btn btn-success open_btn' data-file-id='1'> <i class="fa fa-folder-open" aria-hidden="true"></i><span data-translate="abrir_fichero_1">Open First File</span></button>
                         <input type="file" accept='.fit' id="FileUpload1" style="display: none" />
                         <button id='downloadJSON1' class='btn btn-outline-success' data-file-id='1' title='Download JSON data' hidden><i class="fa fa-download" aria-hidden="true"></i></button>
-                        <button id='open2' class='btn btn-success open_btn' data-file-id='2'> <i class="fa fa-folder-open" aria-hidden="true"></i> Open Second File</button>
+                        <button id='open2' class='btn btn-success open_btn' data-file-id='2'> <i class="fa fa-folder-open" aria-hidden="true"></i><span data-translate="abrir_fichero_2">Open Second File</span></button>
                         <input type="file" accept='.fit' id="FileUpload2" style="display: none" />
                         <button id='downloadJSON2' class='btn btn-outline-success' data-file-id='2' title='Download JSON data' hidden><i class="fa fa-download" aria-hidden="true"></i></button>
                         <button id='clearFiles' class='btn btn-success' data-file-id='2'> <i class="fa fa-trash" aria-hidden="true"></i> Clear Files</button>
                         <span class='adjust_span'>
-                        <label for='offset1'><i class="fa fa-clock-o" aria-hidden="true"></i>  Adjust file <span id='file1_adj'></span></label>
+                        <label for='offset1'><i class="fa fa-clock-o" aria-hidden="true"></i><span data-translate='ajustar_fichero'>Adjust file</span> <span id='file1_adj'></span></label>
                         <input type='number' class='offset_field' name='offset1' id='offset1' min="-60" max='60' value="0" data-file-id="1">
                         <label for='offset2'><i class="fa fa-clock-o" aria-hidden="true"></i>  Adjust file <span id='file2_adj'></span></label>
                         <input type='number' class='offset_field' name='offset2' id='offset2' min="-60" max='60' value="0" data-file-id="2">
-                        <button id='clear_offset' class='btn btn-success btn-sm reset_offset_btn'>Clear Offset</button>
+                        <sp id='clear_offset' class='btn btn-success btn-sm reset_offset_btn'><span data-translate='reset_offset'>Clear Offset</span></button>
                         </span>
-                        <button id='exportXLS' class='btn btn-outline-success float-right'> <i class="fa fa-file-excel-o" aria-hidden="true"></i> Export Data</button>
+                        <button id='exportXLS' class='btn btn-outline-success float-right'> <i class="fa fa-file-excel-o" aria-hidden="true"></i><span data-translate='exportar_datos'>Export Data</span></button>
 
                                           
                 </div>
