@@ -1,6 +1,7 @@
 {
     "abrir_fichero_1":" Abrir primer fichero",
     "abrir_fichero_2":" Abrir segundo fichero",
+    "borrar_ficheros":" Borrar ficheros",
     "descargar_json":"Descargar datos en JSON",
     "ajustar_fichero":"Ajustar fichero",
     "reset_offset":"Deshacer offset",
