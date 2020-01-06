@@ -91,11 +91,11 @@ function initializeChartPwr(measure) {
         ]
       },
       tooltips: {
-        mode: "dataset",
+        mode: "x",
         intersect: true
       },
       hover: {
-        mode: "dataset",
+        mode: "x",
         intersect: true
       }
     }
