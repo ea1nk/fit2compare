@@ -5,7 +5,7 @@ var fitParser = new FitParser({
   force: true,
   speedUnit: "km/h",
   lengthUnit: "km",
-  temperatureUnit: "kelvin",
+  temperatureUnit: "celsius",
   elapsedRecordField: true,
   mode: "both"
 });
@@ -536,12 +536,18 @@ async function createXLS() {
 
   for (i = 0; i < xlsKeys.length; i++) {
       const ws = wb.addWorksheet('File ' + (i+1));
+      var headerA = $().jqTranslateElement('timestamp');
+      var headerB = $().jqTranslateElement('potencia');
+      var headerC = $().jqTranslateElement('pulso');
+      var headerD = $().jqTranslateElement('cadencia');
+      var headerE = $().jqTranslateElement('elevacion');
+
       ws.columns = [
-          { header: 'TIMESTAMP', key: 'a', width: '20' },
-          { header: 'POWER', key: 'b', width: '20' },
-          { header: 'HEART RATE', key: 'c', width: '20' },
-          { header: 'CADENCE', key: 'd', width: '20' },
-          { header: 'ELEVATION', key: 'e', width: '20' }
+          { header: headerA, key: 'a', width: '20' },
+          { header: headerB, key: 'b', width: '20' },
+          { header: headerC, key: 'c', width: '20' },
+          { header: headerD, key: 'd', width: '20' },
+          { header: headerE, key: 'e', width: '20' }
       ]
       var data = createXLSData(xlsBuffer[i]);
       ws.addRows(data)
