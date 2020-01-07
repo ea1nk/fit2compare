@@ -10,7 +10,7 @@
     "potencia":" Potencia",
     "pulso":" Frecuencia cardíaca",
     "cadencia":" Cadencia",
-    "elevacion":" Elevacion",
+    "elevacion":" Elevación",
     "resumen":" Resumen",
     "dispositivo":"Dispositivo:",
     "fecha":"Fecha:",
@@ -19,12 +19,12 @@
     "vel_media":"Vel.media:",
     "vel_max":"Vel.max.",
     "pot_media":"Pot.media:",
-    "pot_maxima":"Pot.maxima",
+    "pot_maxima":"Pot.máxima",
     "pulso_medio":"Pulso medio",
     "pulso_max":"Pulso max",
     "cad_media":"Cad. media",
     "cad_max":"Cad. max:",
     "pot_normalizada":"P.Norm.:",
-    "calorias":"Calorias:",
+    "calorias":"Calorías:",
     "timestamp":"timestamp"
 }
