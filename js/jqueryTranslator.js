@@ -158,8 +158,9 @@
       }
     },
     checkTranslation: function (element){
-
-      if(Translate.translatedStrings[0][element] != undefined){
+      if(Translate.translatedStrings[element] != undefined){
+	return Translate.translatedString[element];	
+      }else if(Translate.translatedStrings[0][element] != undefined){
         return Translate.translatedStrings[0][element];
       }else{
         return Translate.translatedStrings[1][element];
