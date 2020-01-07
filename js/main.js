@@ -92,11 +92,11 @@ function initializeChartPwr(measure) {
       },
       tooltips: {
         mode: "x",
-        intersect: true
+        intersect: false
       },
       hover: {
         mode: "x",
-        intersect: true
+        intersect: false
       }
     }
   });
