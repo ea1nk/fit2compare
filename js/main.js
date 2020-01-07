@@ -29,7 +29,7 @@ function parseFitdata(data) {
 function initializeChartPwr(measure) {
   var canvas = document.getElementById("pwrGraph");
   var ctx = canvas.getContext("2d");
-  
+  var measure = $().jqTranslateElement(measure);
 
   chartPwr = new Chart(ctx, {
     type: "line",
@@ -58,7 +58,7 @@ function initializeChartPwr(measure) {
       maintainAspectRatio: true,
       title: {
         display: true,
-        text: $().jqTranslateElement(measure),
+        text: measure,
         position: "bottom",
         padding: 5,
         fontSize: 10,
@@ -105,6 +105,8 @@ function initializeChartPwr(measure) {
 function initializeChartHR(measure) {
   var canvas = document.getElementById("hrGraph");
   var ctx = canvas.getContext("2d");
+  var measure = $().jqTranslateElement(measure);
+
   
 
   chartHR = new Chart(ctx, {
@@ -134,7 +136,7 @@ function initializeChartHR(measure) {
       maintainAspectRatio: true,
       title: {
         display: true,
-        text: $().jqTranslateElement(measure),
+        text: measure,
         position: "bottom",
         padding: 5,
         fontSize: 10,
@@ -182,7 +184,8 @@ function initializeChartHR(measure) {
 function initializeChartCad(measure) {
   var canvas = document.getElementById("cadenceGraph");
   var ctx = canvas.getContext("2d");
-  
+  var measure = $().jqTranslateElement(measure);
+
   
   chartCad = new Chart(ctx, {
     type: "line",
@@ -211,7 +214,7 @@ function initializeChartCad(measure) {
       maintainAspectRatio: true,
       title: {
         display: true,
-        text: $().jqTranslateElement(measure),
+        text: measure,
         position: "bottom",
         padding: 5,
         fontSize: 10,
@@ -259,7 +262,8 @@ function initializeChartCad(measure) {
 function initializeChartEle(measure) {
   var canvas = document.getElementById("elevationGraph");
   var ctx = canvas.getContext("2d");
-  
+  var measure = $().jqTranslateElement(measure);
+
 
   chartEle = new Chart(ctx, {
     type: "line",
@@ -288,7 +292,7 @@ function initializeChartEle(measure) {
       maintainAspectRatio: true,
       title: {
         display: true,
-        text: $().jqTranslateElement(measure),
+        text: measure,
         position: "bottom",
         padding: 5,
         fontSize: 10,
