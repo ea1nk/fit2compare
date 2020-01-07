@@ -562,6 +562,8 @@ var rows = [];
 data.forEach(entry =>{
   rows.push({a:entry.tsmp, b:entry.pwr, c:entry.hr, d:entry.cad, e:entry.elev})
 })
+rows = JSON.stringify(rows).replace("NaN","-");
+rows = JSON.parse(rows);
 return rows;
 }
 
