@@ -58,7 +58,7 @@ function initializeChartPwr(measure) {
       maintainAspectRatio: true,
       title: {
         display: true,
-        text: measure,
+        text: $().jqTranslateElement(measure),
         position: "bottom",
         padding: 5,
         fontSize: 10,
@@ -134,7 +134,7 @@ function initializeChartHR(measure) {
       maintainAspectRatio: true,
       title: {
         display: true,
-        text: measure,
+        text: $().jqTranslateElement(measure),
         position: "bottom",
         padding: 5,
         fontSize: 10,
@@ -211,7 +211,7 @@ function initializeChartCad(measure) {
       maintainAspectRatio: true,
       title: {
         display: true,
-        text: measure,
+        text: $().jqTranslateElement(measure),
         position: "bottom",
         padding: 5,
         fontSize: 10,
@@ -288,7 +288,7 @@ function initializeChartEle(measure) {
       maintainAspectRatio: true,
       title: {
         display: true,
-        text: measure,
+        text: $().jqTranslateElement(measure),
         position: "bottom",
         padding: 5,
         fontSize: 10,
