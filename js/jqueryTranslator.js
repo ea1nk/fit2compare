@@ -176,4 +176,14 @@
     path : null,
     skip : []
   };
+  $.fn.jqTranslateElement = function(element){
+    var data;
+    data = Translate.checkTranslation(element);
+	  return data;
+  };
+  $.fn.jqTranslateInternal= function(){
+    var self = this;
+    self.each(Translate.translate);
+	  return this;
+  };
 })(jQuery, window, document);
