@@ -159,7 +159,7 @@
     },
     checkTranslation: function (element){
       if(Translate.translatedStrings[element] != undefined){
-	return Translate.translatedString[element];	
+	return Translate.translatedStrings[element];	
       }else if(Translate.translatedStrings[0][element] != undefined){
         return Translate.translatedStrings[0][element];
       }else{
