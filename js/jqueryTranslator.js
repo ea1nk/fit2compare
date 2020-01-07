@@ -156,6 +156,14 @@
       else {
         elem.html(value);
       }
+    },
+    checkTranslation: function (element){
+
+      if(Translate.translatedStrings[0][element] != undefined){
+        return Translate.translatedStrings[0][element];
+      }else{
+        return Translate.translatedStrings[1][element];
+      }
     }
   };
 
