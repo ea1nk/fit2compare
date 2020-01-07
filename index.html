@@ -244,7 +244,7 @@
     var file2_offset_counter = 0;
 
     $(document).ready(function () {
-        $("[data-translate]").jqTranslate('index',{path:'lang',asyncLangLoad: false });
+        $("[data-translate]").jqTranslate('index',{path:'lang',asyncLangLoad: false, fallbackLang:'en' });
       
         $("#file1, #file2").filestyle({
             buttonName: "btn-success",
