@@ -543,11 +543,11 @@ async function createXLS() {
       var headerE = $().jqTranslateElement('elevacion');
 
       ws.columns = [
-          { header: headerA, key: 'a', width: '20' },
-          { header: headerB, key: 'b', width: '20' },
-          { header: headerC, key: 'c', width: '20' },
-          { header: headerD, key: 'd', width: '20' },
-          { header: headerE, key: 'e', width: '20' }
+          { header: headerA.toUpperCase(), key: 'a', width: '20' },
+          { header: headerB.toUpperCase(), key: 'b', width: '20' },
+          { header: headerC.toUpperCase(), key: 'c', width: '20' },
+          { header: headerD.toUpperCase(), key: 'd', width: '20' },
+          { header: headerE.toUpperCase(), key: 'e', width: '20' }
       ]
       var data = createXLSData(xlsBuffer[i]);
       ws.addRows(data)
