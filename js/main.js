@@ -351,7 +351,6 @@ function printPower(data, series) {
   let dataSetTitle = data.file_id.manufacturer;
   let laps = data.activity.sessions[0].laps;
   let records = [];
-  console.log(laps);
   laps.forEach(lap => {
     
     var data = lap.records;
@@ -359,8 +358,6 @@ function printPower(data, series) {
         records.push(record);
     });
   });
-               
-  //let records = data.activity.sessions[0].laps[0].records;
   records.forEach(record => {
     if (!now) {
       now = moment(record.timestamp);
