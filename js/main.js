@@ -354,10 +354,13 @@ function printPower(data, series) {
   console.log(laps);
   laps.forEach(lap => {
     
-      console.log(lap.records);
+    var data = lap.records;
+    data.forEach(record => {  
+        records.push(record);
+    });
   });
                
-  let records = data.activity.sessions[0].laps[0].records;
+  //let records = data.activity.sessions[0].laps[0].records;
   records.forEach(record => {
     if (!now) {
       now = moment(record.timestamp);
