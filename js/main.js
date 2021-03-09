@@ -355,7 +355,7 @@ function printPower(data, series) {
   laps.forEach(lap => {
     
       console.log(lap.records);
-  }
+  });
                
   let records = data.activity.sessions[0].laps[0].records;
   records.forEach(record => {
