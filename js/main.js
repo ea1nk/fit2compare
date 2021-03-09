@@ -349,6 +349,8 @@ function printPower(data, series) {
   let cadBuffer = [];
   let eleBuffer = [];
   let dataSetTitle = data.file_id.manufacturer;
+  let laps = data.activity.sessions[0].laps.length;
+  console.log(laps);
   let records = data.activity.sessions[0].laps[0].records;
   records.forEach(record => {
     if (!now) {
